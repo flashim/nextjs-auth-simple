@@ -18,7 +18,7 @@ export default function Home() {
         <div>
           {!session?.user ? (
             <>
-              <p>Please sign in here.</p>
+              <p>Please sign in here. version 1.0</p>
               <button onClick={signIn}>Sign in</button>
             </>
           ) : (
