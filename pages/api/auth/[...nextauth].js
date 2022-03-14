@@ -13,6 +13,7 @@ export default NextAuth({
       clientId: process.env.OKTA_CLIENTID,
       clientSecret: process.env.OKTA_CLIENTSECRET,
       issuer: process.env.OKTA_ISSUER,
+      authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`,
       /* authorization: { params: { scope: "openid email profile" } },
       authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`, */
       /* scopes: ["openid", "profile", "email"],
