@@ -21,9 +21,9 @@ export default NextAuth({
       /* authorization: */
     }),
   ],
-  callbacks: {
-    // called after sucessful signin
-    /* jwt: async ({ token, user }) => {
+  //callbacks: {
+  // called after sucessful signin
+  /* jwt: async ({ token, user }) => {
       if (user) token.id = user.id;
       return token;
     }, // called whenever session is checked
@@ -31,10 +31,9 @@ export default NextAuth({
       if (token) session.id = token.id;
       return session;
     }, */
-
-    // eslint-disable-next-line no-unused-vars
-    signIn: async ({ user, account, profile, email, credentials }) => {
-      console.log(user, account /* profile, email, credentials */);
+  // eslint-disable-next-line no-unused-vars
+  /* signIn: async ({ user, account, profile, email, credentials }) => {
+      console.log(user, account);
       return true;
     },
     // eslint-disable-next-line no-unused-vars
@@ -52,6 +51,6 @@ export default NextAuth({
       //return token;
       if (user) token.id = user.id;
       return token;
-    },
-  },
+    }, */
+  //},
 });
