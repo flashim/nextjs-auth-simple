@@ -10,10 +10,10 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     OktaProvider({
-      clientId: process.env.OKTA_CLIENT_ID,
-      clientSecret: process.env.OKTA_CLIENT_SECRET,
-      issuer: `${process.env.OKTA_DOMAIN}/oauth2/default`,
-      /* redirectUri: `${process.env.NEXTAUTH_URL}/api/auth/callback/okta`, */
+      clientId: "0oa46eg2lmeDsHavh5d7",
+      /* clientSecret: process.env.OKTA_CLIENT_SECRET, */
+      issuer: `dev-79330204.okta.com/oauth2/default`,
+      redirectUri: `https://nextjs-okta.vercel.app/api/auth/callback`,
       /* authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`, */
       /* authorization: { params: { scope: "openid email profile" } },
       authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`, */
@@ -23,9 +23,9 @@ export default NextAuth({
       /* authorization: */
     }),
   ],
-  //callbacks: {
-  // called after sucessful signin
-  /* jwt: async ({ token, user }) => {
+  callbacks: {
+    // called after sucessful signin
+    /* jwt: async ({ token, user }) => {
       if (user) token.id = user.id;
       return token;
     }, // called whenever session is checked
@@ -33,8 +33,8 @@ export default NextAuth({
       if (token) session.id = token.id;
       return session;
     }, */
-  // eslint-disable-next-line no-unused-vars
-  /* signIn: async ({ user, account, profile, email, credentials }) => {
+    // eslint-disable-next-line no-unused-vars
+    signIn: async ({ user, account, profile, email, credentials }) => {
       console.log(user, account);
       return true;
     },
@@ -53,6 +53,6 @@ export default NextAuth({
       //return token;
       if (user) token.id = user.id;
       return token;
-    }, */
-  //},
+    },
+  },
 });
