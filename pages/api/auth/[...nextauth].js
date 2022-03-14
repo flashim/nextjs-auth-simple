@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
-import Okta from "next-auth/providers/okta";
 import OktaProvider from "next-auth/providers/okta";
 
 //Api route function that is returned from next auth
