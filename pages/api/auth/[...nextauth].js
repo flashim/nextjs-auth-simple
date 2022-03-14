@@ -10,9 +10,9 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     OktaProvider({
-      clientId: process.env.OKTA_CLIENTID,
-      clientSecret: process.env.OKTA_CLIENTSECRET,
-      issuer: process.env.OKTA_ISSUER,
+      clientId: process.env.OKTA_CLIENT_ID,
+      clientSecret: process.env.OKTA_CLIENT_SECRET,
+      issuer: `${process.env.OKTA_DOMAIN}/oauth2/default`,
       /* redirectUri: `${process.env.NEXTAUTH_URL}/api/auth/callback/okta`, */
       /* authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`, */
       /* authorization: { params: { scope: "openid email profile" } },
