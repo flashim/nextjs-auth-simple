@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
+import Okta from "next-auth/providers/okta";
 import OktaProvider from "next-auth/providers/okta";
 
 //Api route function that is returned from next auth
@@ -13,11 +14,12 @@ export default NextAuth({
       clientId: process.env.OKTA_CLIENTID,
       clientSecret: process.env.OKTA_CLIENTSECRET,
       issuer: process.env.OKTA_ISSUER,
-      authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`,
+      redirectUri: `${process.env.NEXTAUTH_URL}/api/auth/callback/okta`,
+      /* authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`, */
       /* authorization: { params: { scope: "openid email profile" } },
       authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`, */
       /* scopes: ["openid", "profile", "email"],
-      redirectUri: "http://localhost:3000/api/auth/callback/okta",
+      ,
       pkce: true, */
       /* authorization: */
     }),
