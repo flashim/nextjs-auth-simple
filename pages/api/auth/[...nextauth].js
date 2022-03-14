@@ -12,7 +12,12 @@ export default NextAuth({
     OktaProvider({
       clientId: process.env.OKTA_CLIENTID,
       clientSecret: process.env.OKTA_CLIENTSECRET,
-      issuer: process.env.OKTA_DOMAIN,
+      issuer: process.env.OKTA_ISSUER,
+      /* authorization: { params: { scope: "openid email profile" } },
+      authorizationUrl: `https://${process.env.OKTA_ISSUER}/oauth2/default?response_type=code`, */
+      /* scopes: ["openid", "profile", "email"],
+      redirectUri: "http://localhost:3000/api/auth/callback/okta",
+      pkce: true, */
       /* authorization: */
     }),
   ],
@@ -29,6 +34,7 @@ export default NextAuth({
 
     // eslint-disable-next-line no-unused-vars
     signIn: async ({ user, account, profile, email, credentials }) => {
+      console.log(user, account /* profile, email, credentials */);
       return true;
     },
     // eslint-disable-next-line no-unused-vars
