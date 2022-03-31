@@ -5,6 +5,10 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const { data: session } = useSession();
+  const { data: token, status } = useSession();
+
+  const localSuperset = "http://localhost:8088/login/";
+  const hostedSuperset = "http://20.219.35.210:8088/";
 
   return (
     <div className={styles.container}>
@@ -18,20 +22,50 @@ export default function Home() {
         <div>
           {!session?.user ? (
             <>
-              <p>Please sign in here. version 2.0</p>
-              <button onClick={signIn}>Sign in</button>
+              <p>
+                <button onClick={signIn}>OKTA SignIn</button>
+              </p>
             </>
           ) : (
             <>
-              <div>{session?.user?.name}</div>
-              <div>{session?.user?.email}</div>
-              <button
-                onClick={() => {
-                  signOut({ redirect: false });
-                }}
-              >
-                Signout
-              </button>
+              <div>
+                {session?.user?.email} ({session?.user?.name})
+                <button
+                  onClick={() => {
+                    signOut({ redirect: false });
+                  }}
+                >
+                  Signout
+                </button>
+              </div>
+
+              <hr />
+              <p>Object</p>
+              <hr />
+              <object
+                type="text/html"
+                data={hostedSuperset}
+                style={{ width: "1000px", height: "500px" }}
+              ></object>
+
+              <hr />
+              <div>
+                <embed
+                  src={hostedSuperset}
+                  type="text/html"
+                  style={{ width: "1000px", height: "500px" }}
+                />
+              </div>
+              <a href={hostedSuperset}>click here</a>
+              <hr />
+              <p>iFrame</p>
+              <hr />
+
+              <iframe
+                src={hostedSuperset}
+                width="1000px"
+                height="500px"
+              ></iframe>
             </>
           )}
         </div>
