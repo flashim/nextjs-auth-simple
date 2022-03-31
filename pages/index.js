@@ -8,7 +8,7 @@ export default function Home() {
   const { data: token, status } = useSession();
 
   const localSuperset = "http://localhost:8088/login/";
-  const hostedSuperset = "https://20.219.35.210:8088/";
+  const hostedSuperset = "http://20.219.35.210:8088/";
 
   return (
     <div className={styles.container}>
