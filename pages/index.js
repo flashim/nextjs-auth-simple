@@ -8,7 +8,8 @@ export default function Home() {
   const { data: token, status } = useSession();
 
   const localSuperset = "http://localhost:8088/login/";
-  const hostedSuperset = "https://20.219.35.210:8088/";
+  const hostedSuperset = "https://20.219.35.210:8088/login/okta?next=";
+  //const hostedSuperset = "https://20.219.35.210:8088/";
 
   return (
     <div className={styles.container}>
@@ -40,6 +41,8 @@ export default function Home() {
               </div>
 
               <hr />
+              <a href={hostedSuperset}>click to Open</a>
+              <hr />
               <p>Object</p>
               <hr />
               <object
@@ -56,7 +59,7 @@ export default function Home() {
                   style={{ width: "1000px", height: "500px" }}
                 />
               </div>
-              <a href={hostedSuperset}>click here</a>
+
               <hr />
               <p>iFrame</p>
               <hr />
